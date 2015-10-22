@@ -6,3 +6,12 @@ practice collaboration via github
 
 Usage:
       Fork this repository and make changes
+
+Collaborators
+1) R
+2) S
+3) U
+4) A
+5) San
+6) Abrar
+
