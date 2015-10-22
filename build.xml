@@ -1,0 +1,55 @@
+<project name="my-project" default="dist" basedir=".">
+	<description>
+		simple example ant script
+	</description>
+<!--set global properties for this build-->
+<property name="src" location="src/main/java" />
+<property name="build" location="target/classes" />
+<property name="dist" location="target" />
+<property name="svnurl" value="http://ec2-50-18-214-85.us-west-1.compute.amazonaws.com/oranges/chandan/" />
+<target name="init" depends="clean">
+<!-- create the timestamp-->
+	<tstamp/>
+<!--create build directiry structure for the compile-->
+	<mkdir dir="${build}"/>
+</target>
+
+
+<target name="compile" depends="init">
+<!--compile java code from src to the target/classes-->
+	<javac includeantruntime="false" srcdir="${src}" destdir="${build}" />
+</target>
+
+<target name="dist" depends="compile">
+	<description>
+	generate the distribution
+	</description>
+<!--create the distribution directory-->
+<mkdir dir="${dist}/lib"/>
+<!--keeps everything the ${build} directory to ${dist}-->
+<jar jarfile="${dist}/lib/hello_world.jar" basedir="${build}"/>
+</target>
+
+<target name="clean">
+	<description>
+		clean up
+	</description>
+<!--cleans up ${build} and ${dist} directories-->
+<delete dir="${build}" />
+<delete dir="${dist}/lib" />
+</target>
+
+<target name="mysvn">
+<description>
+listing the files
+</description>
+<exec executable="C:\Program Files\TortoiseSVN\bin\svn.exe">
+    <arg value="list" />
+    <arg value="${svnurl}" />
+	<arg value="-R" />
+	</exec>
+</target>
+
+</project>
+
+	
