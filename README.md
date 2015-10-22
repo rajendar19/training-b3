@@ -8,7 +8,7 @@ Usage:
       Fork this repository and make changes
 
 Collaborators
-1) R
+1) Raj
 2) S
 3) U
 4) A
